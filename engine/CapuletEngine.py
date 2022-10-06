@@ -1,3 +1,7 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from engine.Engine import Engine
 
 class CapuletEngine(Engine):
@@ -8,7 +12,7 @@ class CapuletEngine(Engine):
         self.SERVICE_THRESHOLD =  30000
     
     def needs_service(self)->bool:
-        if self.current_mileage - self.last_service_mileage >= self.SERVICE_THRESHOLD:
+        if self.current_mileage - self.last_service_mileage > self.SERVICE_THRESHOLD:
             return True
         else:
             return False
